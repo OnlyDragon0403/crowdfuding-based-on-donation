@@ -1,0 +1,46 @@
+{
+  "name": "hi5.space",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tronbox-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "compile": "tronbox compile --all",
+    "deployshasta": "tronbox migrate --network shasta",
+    "testshasta": "tronbox test --network shasta --timeout 500000",
+    "cdts": "npm run compile && npm run deployshasta && npm run testshasta"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.1",
+    "@reduxjs/toolkit": "^1.7.1",
+    "dotenv": "^10.0.0",
+    "node-sass": "^7.0.0",
+    "querystring": "^0.2.1",
+    "react-redux": "^7.2.6",
+    "react-scripts": "^4.0.3",
+    "semantic-ui-react": "^2.0.4",
+    "tron-create-address": "^0.1.10",
+    "tronweb": "^4.0.1",
+    "web3": "^1.6.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "globals": {
+    "_": true
+  }
+}

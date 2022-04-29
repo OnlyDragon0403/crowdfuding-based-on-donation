@@ -1,0 +1,1775 @@
+{
+  "contractName": "MemberGroupLib",
+  "abi": [],
+  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26474726f6e58221220957cb27318442dd18e0375d7725ff70c836d46b09502e10616350c1ac805e90164736f6c63430008060033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26474726f6e58221220957cb27318442dd18e0375d7725ff70c836d46b09502e10616350c1ac805e90164736f6c63430008060033",
+  "sourceMap": "66:1436:11:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "66:1436:11:-:0;;;;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\nlibrary MemberGroupLib {\n    using MemberGroupLib for MemberGroupLib.MemberGroup;\n\n    struct Member{\n        uint256 _created_at;        // refers to entried date of member\n        uint256 _owner_ID;         // refers to identifer of owner in all members of space\n        uint256 _member_ID;         // refers to identifer of list in all members of space\n        uint _member_TYPE;          // refers to upgrade ,re-entry and starter\n    }\n\n    struct MemberGroup{\n        address _owner;     // address of group\n        string _name;               // name of group\n\n        Member[]  _member_group;        // group of same ID and address.\n    }\n\n    function createMemberGroup(         // create member group by new address\n        MemberGroup storage self,\n        address owner,\n        string memory name\n    ) internal {\n        self._owner = owner;\n        self._name = name;\n    }\n\n    function InsertMember(              // 2.make new member group or register new _member_ID into its member group.\n        MemberGroup storage self,\n        uint256 owner_ID,              // owner ID of space.\n        uint256 member_ID,              // member ID of space.\n        uint member_TYPE\n    ) internal {\n        self._member_group.push(Member({\n                _created_at : block.timestamp,\n                _owner_ID : owner_ID,\n                _member_ID : member_ID,\n                _member_TYPE : member_TYPE\n        }));\n    }\n}\n",
+  "sourcePath": "src/contracts/MemberGroupLib.sol",
+  "ast": {
+    "absolutePath": "src/contracts/MemberGroupLib.sol",
+    "exportedSymbols": {
+      "MemberGroupLib": [
+        6190
+      ]
+    },
+    "id": 6191,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6117,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:11"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 6190,
+        "linearizedBaseContracts": [
+          6190
+        ],
+        "name": "MemberGroupLib",
+        "nameLocation": "74:14:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 6121,
+            "libraryName": {
+              "id": 6118,
+              "name": "MemberGroupLib",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 6190,
+              "src": "101:14:11"
+            },
+            "nodeType": "UsingForDirective",
+            "src": "95:52:11",
+            "typeName": {
+              "id": 6120,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 6119,
+                "name": "MemberGroupLib.MemberGroup",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 6139,
+                "src": "120:26:11"
+              },
+              "referencedDeclaration": 6139,
+              "src": "120:26:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                "typeString": "struct MemberGroupLib.MemberGroup"
+              }
+            }
+          },
+          {
+            "canonicalName": "MemberGroupLib.Member",
+            "id": 6130,
+            "members": [
+              {
+                "constant": false,
+                "id": 6123,
+                "mutability": "mutable",
+                "name": "_created_at",
+                "nameLocation": "184:11:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "176:19:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6122,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "176:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6125,
+                "mutability": "mutable",
+                "name": "_owner_ID",
+                "nameLocation": "256:9:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "248:17:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6124,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "248:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6127,
+                "mutability": "mutable",
+                "name": "_member_ID",
+                "nameLocation": "347:10:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "339:18:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6126,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "339:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6129,
+                "mutability": "mutable",
+                "name": "_member_TYPE",
+                "nameLocation": "435:12:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "430:17:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6128,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "430:4:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Member",
+            "nameLocation": "160:6:11",
+            "nodeType": "StructDefinition",
+            "scope": 6190,
+            "src": "153:353:11",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "MemberGroupLib.MemberGroup",
+            "id": 6139,
+            "members": [
+              {
+                "constant": false,
+                "id": 6132,
+                "mutability": "mutable",
+                "name": "_owner",
+                "nameLocation": "548:6:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6139,
+                "src": "540:14:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 6131,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "540:7:11",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6134,
+                "mutability": "mutable",
+                "name": "_name",
+                "nameLocation": "595:5:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6139,
+                "src": "588:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 6133,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "588:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6138,
+                "mutability": "mutable",
+                "name": "_member_group",
+                "nameLocation": "652:13:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6139,
+                "src": "642:23:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr",
+                  "typeString": "struct MemberGroupLib.Member[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 6136,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 6135,
+                      "name": "Member",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 6130,
+                      "src": "642:6:11"
+                    },
+                    "referencedDeclaration": 6130,
+                    "src": "642:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Member_$6130_storage_ptr",
+                      "typeString": "struct MemberGroupLib.Member"
+                    }
+                  },
+                  "id": 6137,
+                  "nodeType": "ArrayTypeName",
+                  "src": "642:8:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr",
+                    "typeString": "struct MemberGroupLib.Member[]"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "MemberGroup",
+            "nameLocation": "519:11:11",
+            "nodeType": "StructDefinition",
+            "scope": 6190,
+            "src": "512:200:11",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6161,
+              "nodeType": "Block",
+              "src": "891:63:11",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6153,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 6149,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6142,
+                        "src": "901:4:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                          "typeString": "struct MemberGroupLib.MemberGroup storage pointer"
+                        }
+                      },
+                      "id": 6151,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "_owner",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6132,
+                      "src": "901:11:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6152,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6144,
+                      "src": "915:5:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "901:19:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 6154,
+                  "nodeType": "ExpressionStatement",
+                  "src": "901:19:11"
+                },
+                {
+                  "expression": {
+                    "id": 6159,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 6155,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6142,
+                        "src": "930:4:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                          "typeString": "struct MemberGroupLib.MemberGroup storage pointer"
+                        }
+                      },
+                      "id": 6157,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "_name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6134,
+                      "src": "930:10:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6158,
+                      "name": "name",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6146,
+                      "src": "943:4:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "930:17:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 6160,
+                  "nodeType": "ExpressionStatement",
+                  "src": "930:17:11"
+                }
+              ]
+            },
+            "id": 6162,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createMemberGroup",
+            "nameLocation": "727:17:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6142,
+                  "mutability": "mutable",
+                  "name": "self",
+                  "nameLocation": "820:4:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6162,
+                  "src": "800:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                    "typeString": "struct MemberGroupLib.MemberGroup"
+                  },
+                  "typeName": {
+                    "id": 6141,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 6140,
+                      "name": "MemberGroup",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 6139,
+                      "src": "800:11:11"
+                    },
+                    "referencedDeclaration": 6139,
+                    "src": "800:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                      "typeString": "struct MemberGroupLib.MemberGroup"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6144,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nameLocation": "842:5:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6162,
+                  "src": "834:13:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6143,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "834:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6146,
+                  "mutability": "mutable",
+                  "name": "name",
+                  "nameLocation": "871:4:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6162,
+                  "src": "857:18:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 6145,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "857:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "744:137:11"
+            },
+            "returnParameters": {
+              "id": 6148,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "891:0:11"
+            },
+            "scope": 6190,
+            "src": "718:236:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 6188,
+              "nodeType": "Block",
+              "src": "1271:229:11",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "expression": {
+                              "id": 6180,
+                              "name": "block",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967292,
+                              "src": "1344:5:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_block",
+                                "typeString": "block"
+                              }
+                            },
+                            "id": 6181,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "timestamp",
+                            "nodeType": "MemberAccess",
+                            "src": "1344:15:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 6182,
+                            "name": "owner_ID",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6167,
+                            "src": "1389:8:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 6183,
+                            "name": "member_ID",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6169,
+                            "src": "1428:9:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 6184,
+                            "name": "member_TYPE",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6171,
+                            "src": "1470:11:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "id": 6179,
+                          "name": "Member",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6130,
+                          "src": "1305:6:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Member_$6130_storage_ptr_$",
+                            "typeString": "type(struct MemberGroupLib.Member storage pointer)"
+                          }
+                        },
+                        "id": 6185,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "_created_at",
+                          "_owner_ID",
+                          "_member_ID",
+                          "_member_TYPE"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "1305:187:11",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Member_$6130_memory_ptr",
+                          "typeString": "struct MemberGroupLib.Member memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Member_$6130_memory_ptr",
+                          "typeString": "struct MemberGroupLib.Member memory"
+                        }
+                      ],
+                      "expression": {
+                        "expression": {
+                          "id": 6174,
+                          "name": "self",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6165,
+                          "src": "1281:4:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                            "typeString": "struct MemberGroupLib.MemberGroup storage pointer"
+                          }
+                        },
+                        "id": 6177,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "_member_group",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 6138,
+                        "src": "1281:18:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Member_$6130_storage_$dyn_storage",
+                          "typeString": "struct MemberGroupLib.Member storage ref[] storage ref"
+                        }
+                      },
+                      "id": 6178,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "1281:23:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr_$_t_struct$_Member_$6130_storage_$returns$__$bound_to$_t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct MemberGroupLib.Member storage ref[] storage pointer,struct MemberGroupLib.Member storage ref)"
+                      }
+                    },
+                    "id": 6186,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1281:212:11",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 6187,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1281:212:11"
+                }
+              ]
+            },
+            "id": 6189,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "InsertMember",
+            "nameLocation": "969:12:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6172,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6165,
+                  "mutability": "mutable",
+                  "name": "self",
+                  "nameLocation": "1101:4:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1081:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                    "typeString": "struct MemberGroupLib.MemberGroup"
+                  },
+                  "typeName": {
+                    "id": 6164,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 6163,
+                      "name": "MemberGroup",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 6139,
+                      "src": "1081:11:11"
+                    },
+                    "referencedDeclaration": 6139,
+                    "src": "1081:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                      "typeString": "struct MemberGroupLib.MemberGroup"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6167,
+                  "mutability": "mutable",
+                  "name": "owner_ID",
+                  "nameLocation": "1123:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1115:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6166,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1115:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6169,
+                  "mutability": "mutable",
+                  "name": "member_ID",
+                  "nameLocation": "1184:9:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1176:17:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6168,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1176:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6171,
+                  "mutability": "mutable",
+                  "name": "member_TYPE",
+                  "nameLocation": "1244:11:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1239:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6170,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1239:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "981:280:11"
+            },
+            "returnParameters": {
+              "id": 6173,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1271:0:11"
+            },
+            "scope": 6190,
+            "src": "960:540:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 6191,
+        "src": "66:1436:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1471:11"
+  },
+  "legacyAST": {
+    "absolutePath": "src/contracts/MemberGroupLib.sol",
+    "exportedSymbols": {
+      "MemberGroupLib": [
+        6190
+      ]
+    },
+    "id": 6191,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6117,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:11"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 6190,
+        "linearizedBaseContracts": [
+          6190
+        ],
+        "name": "MemberGroupLib",
+        "nameLocation": "74:14:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 6121,
+            "libraryName": {
+              "id": 6118,
+              "name": "MemberGroupLib",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 6190,
+              "src": "101:14:11"
+            },
+            "nodeType": "UsingForDirective",
+            "src": "95:52:11",
+            "typeName": {
+              "id": 6120,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 6119,
+                "name": "MemberGroupLib.MemberGroup",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 6139,
+                "src": "120:26:11"
+              },
+              "referencedDeclaration": 6139,
+              "src": "120:26:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                "typeString": "struct MemberGroupLib.MemberGroup"
+              }
+            }
+          },
+          {
+            "canonicalName": "MemberGroupLib.Member",
+            "id": 6130,
+            "members": [
+              {
+                "constant": false,
+                "id": 6123,
+                "mutability": "mutable",
+                "name": "_created_at",
+                "nameLocation": "184:11:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "176:19:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6122,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "176:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6125,
+                "mutability": "mutable",
+                "name": "_owner_ID",
+                "nameLocation": "256:9:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "248:17:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6124,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "248:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6127,
+                "mutability": "mutable",
+                "name": "_member_ID",
+                "nameLocation": "347:10:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "339:18:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6126,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "339:7:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6129,
+                "mutability": "mutable",
+                "name": "_member_TYPE",
+                "nameLocation": "435:12:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6130,
+                "src": "430:17:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 6128,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "430:4:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Member",
+            "nameLocation": "160:6:11",
+            "nodeType": "StructDefinition",
+            "scope": 6190,
+            "src": "153:353:11",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "MemberGroupLib.MemberGroup",
+            "id": 6139,
+            "members": [
+              {
+                "constant": false,
+                "id": 6132,
+                "mutability": "mutable",
+                "name": "_owner",
+                "nameLocation": "548:6:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6139,
+                "src": "540:14:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 6131,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "540:7:11",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6134,
+                "mutability": "mutable",
+                "name": "_name",
+                "nameLocation": "595:5:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6139,
+                "src": "588:12:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 6133,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "588:6:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 6138,
+                "mutability": "mutable",
+                "name": "_member_group",
+                "nameLocation": "652:13:11",
+                "nodeType": "VariableDeclaration",
+                "scope": 6139,
+                "src": "642:23:11",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr",
+                  "typeString": "struct MemberGroupLib.Member[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 6136,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 6135,
+                      "name": "Member",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 6130,
+                      "src": "642:6:11"
+                    },
+                    "referencedDeclaration": 6130,
+                    "src": "642:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Member_$6130_storage_ptr",
+                      "typeString": "struct MemberGroupLib.Member"
+                    }
+                  },
+                  "id": 6137,
+                  "nodeType": "ArrayTypeName",
+                  "src": "642:8:11",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr",
+                    "typeString": "struct MemberGroupLib.Member[]"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "MemberGroup",
+            "nameLocation": "519:11:11",
+            "nodeType": "StructDefinition",
+            "scope": 6190,
+            "src": "512:200:11",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6161,
+              "nodeType": "Block",
+              "src": "891:63:11",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6153,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 6149,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6142,
+                        "src": "901:4:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                          "typeString": "struct MemberGroupLib.MemberGroup storage pointer"
+                        }
+                      },
+                      "id": 6151,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "_owner",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6132,
+                      "src": "901:11:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6152,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6144,
+                      "src": "915:5:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "901:19:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 6154,
+                  "nodeType": "ExpressionStatement",
+                  "src": "901:19:11"
+                },
+                {
+                  "expression": {
+                    "id": 6159,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 6155,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6142,
+                        "src": "930:4:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                          "typeString": "struct MemberGroupLib.MemberGroup storage pointer"
+                        }
+                      },
+                      "id": 6157,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "_name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6134,
+                      "src": "930:10:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6158,
+                      "name": "name",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6146,
+                      "src": "943:4:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "930:17:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 6160,
+                  "nodeType": "ExpressionStatement",
+                  "src": "930:17:11"
+                }
+              ]
+            },
+            "id": 6162,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createMemberGroup",
+            "nameLocation": "727:17:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6142,
+                  "mutability": "mutable",
+                  "name": "self",
+                  "nameLocation": "820:4:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6162,
+                  "src": "800:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                    "typeString": "struct MemberGroupLib.MemberGroup"
+                  },
+                  "typeName": {
+                    "id": 6141,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 6140,
+                      "name": "MemberGroup",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 6139,
+                      "src": "800:11:11"
+                    },
+                    "referencedDeclaration": 6139,
+                    "src": "800:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                      "typeString": "struct MemberGroupLib.MemberGroup"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6144,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nameLocation": "842:5:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6162,
+                  "src": "834:13:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6143,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "834:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6146,
+                  "mutability": "mutable",
+                  "name": "name",
+                  "nameLocation": "871:4:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6162,
+                  "src": "857:18:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 6145,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "857:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "744:137:11"
+            },
+            "returnParameters": {
+              "id": 6148,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "891:0:11"
+            },
+            "scope": 6190,
+            "src": "718:236:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 6188,
+              "nodeType": "Block",
+              "src": "1271:229:11",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "expression": {
+                              "id": 6180,
+                              "name": "block",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967292,
+                              "src": "1344:5:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_block",
+                                "typeString": "block"
+                              }
+                            },
+                            "id": 6181,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "timestamp",
+                            "nodeType": "MemberAccess",
+                            "src": "1344:15:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 6182,
+                            "name": "owner_ID",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6167,
+                            "src": "1389:8:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 6183,
+                            "name": "member_ID",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6169,
+                            "src": "1428:9:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 6184,
+                            "name": "member_TYPE",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6171,
+                            "src": "1470:11:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "id": 6179,
+                          "name": "Member",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6130,
+                          "src": "1305:6:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Member_$6130_storage_ptr_$",
+                            "typeString": "type(struct MemberGroupLib.Member storage pointer)"
+                          }
+                        },
+                        "id": 6185,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "_created_at",
+                          "_owner_ID",
+                          "_member_ID",
+                          "_member_TYPE"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "1305:187:11",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Member_$6130_memory_ptr",
+                          "typeString": "struct MemberGroupLib.Member memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Member_$6130_memory_ptr",
+                          "typeString": "struct MemberGroupLib.Member memory"
+                        }
+                      ],
+                      "expression": {
+                        "expression": {
+                          "id": 6174,
+                          "name": "self",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6165,
+                          "src": "1281:4:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                            "typeString": "struct MemberGroupLib.MemberGroup storage pointer"
+                          }
+                        },
+                        "id": 6177,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "_member_group",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 6138,
+                        "src": "1281:18:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Member_$6130_storage_$dyn_storage",
+                          "typeString": "struct MemberGroupLib.Member storage ref[] storage ref"
+                        }
+                      },
+                      "id": 6178,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "1281:23:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr_$_t_struct$_Member_$6130_storage_$returns$__$bound_to$_t_array$_t_struct$_Member_$6130_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct MemberGroupLib.Member storage ref[] storage pointer,struct MemberGroupLib.Member storage ref)"
+                      }
+                    },
+                    "id": 6186,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1281:212:11",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 6187,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1281:212:11"
+                }
+              ]
+            },
+            "id": 6189,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "InsertMember",
+            "nameLocation": "969:12:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6172,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6165,
+                  "mutability": "mutable",
+                  "name": "self",
+                  "nameLocation": "1101:4:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1081:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                    "typeString": "struct MemberGroupLib.MemberGroup"
+                  },
+                  "typeName": {
+                    "id": 6164,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 6163,
+                      "name": "MemberGroup",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 6139,
+                      "src": "1081:11:11"
+                    },
+                    "referencedDeclaration": 6139,
+                    "src": "1081:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MemberGroup_$6139_storage_ptr",
+                      "typeString": "struct MemberGroupLib.MemberGroup"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6167,
+                  "mutability": "mutable",
+                  "name": "owner_ID",
+                  "nameLocation": "1123:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1115:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6166,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1115:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6169,
+                  "mutability": "mutable",
+                  "name": "member_ID",
+                  "nameLocation": "1184:9:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1176:17:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6168,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1176:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6171,
+                  "mutability": "mutable",
+                  "name": "member_TYPE",
+                  "nameLocation": "1244:11:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6189,
+                  "src": "1239:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6170,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1239:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "981:280:11"
+            },
+            "returnParameters": {
+              "id": 6173,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1271:0:11"
+            },
+            "scope": 6190,
+            "src": "960:540:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 6191,
+        "src": "66:1436:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1471:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.6+commit.0e36fba0.mod.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2022-01-19T06:29:49.377Z"
+}

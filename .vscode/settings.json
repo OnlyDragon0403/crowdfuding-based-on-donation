@@ -1,0 +1,21 @@
+{
+    "solidity.compileUsingRemoteVersion": "v0.7.4+commit.3f05b770",
+    "solidity.enableLocalNodeCompiler": false,
+    "decorateKeyword.definitionFilePath": ".vscode/DecorateKeyword.json" ,  // definition file path
+    "decorateKeyword.autoDecorate": false,    // decorate when document is opened or saved.
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "patternDecorator": {
+        "decorators": [
+            {
+                "pattern": "192\\.168\\.0\\.100",
+                "before": "{",
+                "after": "}:Dev"
+            }
+        ]
+    },
+    "restructuredtext.confPath": "d:\\6.DevProject\\Blockchain\\1.Practise\\best solidity language\\solidity\\docs"
+}
+

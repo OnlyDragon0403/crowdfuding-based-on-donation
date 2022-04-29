@@ -1,0 +1,9 @@
+
+src/js/metacoin-config.js
+node_modules
+src/abis
+build
+build
+mockup
+.env
+
